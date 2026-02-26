@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # FastAPI Backend With Blazing Fast Performance And High Security
 
 #  What is FastAPI? It's a super-fast and popular backend that's perfect for your web server and easy to maintain.
@@ -28,6 +27,3 @@ uvicorn app:app --reload
 ```
 =======
 # FastAPI-BE
-
-Backend FastAPI
->>>>>>> 44f142083bc7f32225e6d95837e301fa038f580b
