@@ -34,7 +34,7 @@ async def get_help_page():
     <html>
         <head><title>Help</title></head>
         <body>
-            <strong>Server Status</strong>
+            <h1>Server Status</h1>
             <p>This server is built with FastAPI.</p>
             <p>Check the /docs endpoint for Swagger documentation.</p>
         </body>
