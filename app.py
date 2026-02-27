@@ -1,4 +1,4 @@
-iimport os
+import os
 from fastapi import FastAPI, Response
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
@@ -9,17 +9,20 @@ ENVIRONMENT = os.getenv("ENVIRONMENT", "Development")
 class ServerStatus(BaseModel):
     message: str
     status: Literal["Development", "Production", "Staging"]
-    version: str = "1.0.0"
+    version: str = "0.0.1"
 
 app = FastAPI(
     title="Fast-API-BE",
     description="A properly structured FastAPI starter",
-    version="1.0.0"
+    version="0.0.1"
 )
 
 
 @app.get("/", response_model=ServerStatus)
-async def home_page() -> ServerStatus:
+async def get_home_page() -> ServerStatus:
+    """
+    Mengembalikan status server dan informasi lingkungan saat ini. Digunakan sebagai titik akhir pemeriksaan kesehatan.
+    """
     return ServerStatus(
         message="Server is Active",
         status=ENVIRONMENT
