@@ -9,12 +9,12 @@ ENVIRONMENT = os.getenv("ENVIRONMENT", "Development")
 class ServerStatus(BaseModel):
     message: str
     status: Literal["Development", "Production", "Staging"]
-    version: str = "0.0.1"
+    version: str = "1.0.0"
 
 app = FastAPI(
     title="Fast-API-BE",
     description="A properly structured FastAPI starter",
-    version="0.0.1"
+    version="1.0.0"
 )
 
 
