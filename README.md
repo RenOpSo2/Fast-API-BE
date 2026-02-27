@@ -18,7 +18,7 @@ source myvenv/bin/activate
 
 - Install Depency 
 ```Bash
-pip install -r requirements.txt
+pip install -r requiremensts.txt
 ```
 
 - After That You Can Run Using Uvicorn To Develop
