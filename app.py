@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI, Response
+from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from typing import Literal
@@ -29,7 +29,7 @@ async def get_home_page() -> ServerStatus:
     )
 
 @app.get("/help", response_class=HTMLResponse)
-async def get_help_page():
+async def get_help_page() -> HTMLResponse:
     return """
     <html>
         <head><title>Help</title></head>
