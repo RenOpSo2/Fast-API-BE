@@ -1,4 +1,4 @@
-import os
+iimport os
 from fastapi import FastAPI, Response
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
@@ -26,7 +26,7 @@ async def home_page() -> ServerStatus:
     )
 
 @app.get("/help", response_class=HTMLResponse)
-async def help_page():
+async def get_help_page():
     return """
     <html>
         <head><title>Help</title></head>
