@@ -8,7 +8,7 @@ ENVIRONMENT = os.getenv("ENVIRONMENT", "Development")
 
 class ServerStatus(BaseModel):
     message: str
-    status: Literal ["Development", "Production", "Staging"]
+    status: Literal["Development", "Production", "Staging"]
     version: str = "0.0.1"
 
 app = FastAPI(
@@ -18,20 +18,18 @@ app = FastAPI(
 )
 
 
-# Basic Route
-@app.get("/")
-async def home_page():
-    return {
-    "message": "Server is Activate",
-    "status": ENVIRONMENT
-}
-
+@app.get("/", response_model=ServerStatus)
+async def home_page() -> ServerStatus:
+    return ServerStatus(
+        message="Server is Active",
+        status=ENVIRONMENT
+    )
 
 @app.get("/help", response_class=HTMLResponse)
 async def help_page():
     return """
     <html>
-        <head><title>Hell</title></head>
+        <head><title>Help</title></head>
         <body>
             <strong>Server Status</strong>
             <p>This server is built with FastAPI.</p>
@@ -39,3 +37,7 @@ async def help_page():
         </body>
     </html>
     """
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
