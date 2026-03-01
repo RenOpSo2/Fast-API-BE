@@ -1,15 +1,9 @@
-import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
-from pydantic import BaseModel
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 from typing import Literal
-
-ENVIRONMENT = os.getenv("ENVIRONMENT", "Development")
-
-class ServerStatus(BaseModel):
-    message: str
-    status: Literal["Development", "Production", "Staging"]
-    version: str = "0.0.1"
 
 app = FastAPI(
     title="Fast-API-BE",
@@ -17,15 +11,18 @@ app = FastAPI(
     version="0.0.1"
 )
 
-
-@app.get("/", response_model=ServerStatus)
-async def get_home_page() -> ServerStatus:
+templates = Jinja2Templates(directory="templates")
+@app.get("/", response_class=HTMLResponse)
+async def get_home_page(request: Request):
     """
     Mengembalikan status server dan informasi lingkungan saat ini. Digunakan sebagai titik akhir pemeriksaan kesehatan.
     """
-    return ServerStatus(
-        message="Server is Active",
-        status=ENVIRONMENT
+    return templates.TemplateResponse(
+            "index.html",  
+        {
+            "request": request,     
+            "server_status": "Active" 
+        }
     )
 
 @app.get("/help", response_class=HTMLResponse)
