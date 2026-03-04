@@ -3,6 +3,10 @@
 #  What is FastAPI? 
 It's a super-fast and popular backend that's perfect for your web server and easy to maintain.
 
+
+and FastAPI using Jinja2Templates This code is very maintainable and a Best Practice
+
+
 ---
 
 - To Create Venv In Terminal

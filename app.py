@@ -15,18 +15,21 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 async def get_home_page(request: Request):
     """
-    Mengembalikan status server dan informasi lingkungan saat ini. Digunakan sebagai titik akhir pemeriksaan kesehatan.
+    Endpoint Home Page Untuk Load Jinja Templates /templates/index.html
     """
     return templates.TemplateResponse(
             "index.html",  
         {
-            "request": request,     
+            "request": request,
             "server_status": "Active" 
         }
     )
 
 @app.get("/help", response_class=HTMLResponse)
 async def get_help_page() -> HTMLResponse:
+    """
+  Html Respon Bukan Jinja2Templates
+    """
     return """
     <html>
         <head><title>Help</title></head>
