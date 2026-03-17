@@ -1,12 +1,10 @@
 # FastAPI Backend With Blazing Fast Performance And High Security
 
-#  What is FastAPI? 
-It's a super-fast and popular backend that's perfect for your web server and easy to maintain.
+#  Why FastAPI?
 
-
+- FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints.
+- It's easy to learn, easy to use, and extremely flexible.
 and FastAPI using Jinja2Templates This code is very maintainable and a Best Practice
-
-
 ---
 
 - To Create Venv In Terminal
