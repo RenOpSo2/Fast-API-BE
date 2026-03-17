@@ -8,8 +8,9 @@ from typing import Literal
 app = FastAPI(
     title="Fast-API-BE",
     description="A properly structured FastAPI starter",
-    version="0.0.1"
+    version="0.0.3"
 )
+
 
 templates = Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
@@ -21,6 +22,7 @@ async def get_home_page(request: Request):
             "index.html",  
         {
             "request": request,
+            "server_name": "Fast-API-BE",
             "server_status": "Active" 
         }
     )
