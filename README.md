@@ -26,6 +26,6 @@ pip install -r requiremensts.txt
 - After That You Can Run Using Uvicorn To Develop
 
 ```Python 
-uvicorn app:app --reload
+uvicorn src.app:app --reload
 ```
 # FastAPI Be
